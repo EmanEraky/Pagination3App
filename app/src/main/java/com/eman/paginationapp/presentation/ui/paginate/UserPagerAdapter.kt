@@ -8,13 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eman.paginationapp.databinding.ItemLayoutBinding
 import com.eman.paginationapp.domain.models.User
+import com.eman.paginationapp.presentation.ui.listeners.UserClick
 
-class UserPagerAdapter : PagingDataAdapter<User, UserPagerAdapter.UserViewHolder>(UserComparator) {
+class UserPagerAdapter(private val listener : UserClick) : PagingDataAdapter<User, UserPagerAdapter.UserViewHolder>(UserComparator) {
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = getItem(position)!!
         holder.view.textViewUserName.text = user.name
         Glide.with(holder.itemView.context).load(user.logo).into(holder.view.imageViewAvatar)
+        holder.view.root.setOnClickListener{
+            listener.clickUser()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {

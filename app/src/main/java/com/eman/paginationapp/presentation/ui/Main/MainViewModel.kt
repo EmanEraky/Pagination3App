@@ -1,4 +1,4 @@
-package com.eman.paginationapp.presentation.ui
+package com.eman.paginationapp.presentation.ui.Main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

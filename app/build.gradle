@@ -36,9 +36,8 @@ android {
         jvmTarget = '1.8'
     }
 
-
-    buildFeatures {
-        viewBinding true
+    buildFeatures{
+        dataBinding true
     }
 }
 
@@ -70,23 +69,14 @@ dependencies {
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
-//
-//    def koin_version = "3.2.2"
-//    implementation "io.insert-koin:koin-core:$koin_version"
-//    implementation "io.insert-koin:koin-android:$koin_version"
 
-
-
-    def koin_android_version= "3.2.2"
     // Koin main features for Android
+    def koin_android_version= "3.2.2"
     implementation "io.insert-koin:koin-android:$koin_android_version"
-// No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
 
-// Java Compatibility
-    implementation "io.insert-koin:koin-android-compat:$koin_android_version"
-// Jetpack WorkManager
-    implementation "io.insert-koin:koin-androidx-workmanager:$koin_android_version"
-// Navigation Graph
-    implementation "io.insert-koin:koin-androidx-navigation:$koin_android_version"
+    //DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
 
+    //leakcanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 }

@@ -39,7 +39,7 @@ class UserPagingSource (private val apiService: ApiService): PagingSource<Int, U
                 }
             LoadResult.Page(
                 data = movies.data,
-                prevKey = if (pageIndex == STARTING_PAGE_INDEX) null else pageIndex - 1,
+                prevKey = if (pageIndex == STARTING_PAGE_INDEX) null else pageIndex.minus(1),
                 nextKey = nextKey?.plus(1)
             )
 

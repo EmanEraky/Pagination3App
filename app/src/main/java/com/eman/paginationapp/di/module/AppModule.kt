@@ -5,6 +5,7 @@ import com.eman.paginationapp.BuildConfig
 import com.eman.paginationapp.data.api.ApiHelper
 import com.eman.paginationapp.data.repository.ApiHelperImpl
 import com.eman.paginationapp.data.api.ApiService
+import com.eman.paginationapp.data.repository.RepoStorage
 import com.eman.paginationapp.utils.NetworkHelper
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -12,6 +13,7 @@ import org.koin.android.ext.koin.androidContext
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import org.koin.dsl.module
+import kotlin.math.sin
 
 
 val appModule = module{
@@ -52,4 +54,6 @@ private fun provideRetrofit(
 
 private fun provideApiService(retrofit: Retrofit): ApiService =
     retrofit.create(ApiService::class.java)
+
+
 
